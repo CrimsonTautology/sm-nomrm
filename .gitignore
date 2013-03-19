@@ -1,0 +1,10 @@
+#compiled files
+*.smx
+*.exe
+*.o
+
+#plugin directory
+addons/sourcemod/plugins/
+
+#vim files
+*.sw*
