@@ -33,6 +33,8 @@ new Handle:gNominateOwners = INVALID_HANDLE;
 
 public OnPluginStart()
 {
+	LoadTranslations("common.phrases");
+
 	gNominateMaps = CreateArray(ByteCountToCells(NAME_SIZE));
 	gNominateOwners = CreateArray(1);
 
