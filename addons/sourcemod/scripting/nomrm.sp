@@ -83,10 +83,12 @@ public removeNominationTarget(user, String:target[]){
 			//Target does refer to a person on the server and we just removed his map
 			RemoveNominationByOwner(owner);
 			ReplyToCommand(user, "[SM] Removed %s", map);
+			continue;
 		}
 		if(StrContains(map, target, false) >= 0){
 			RemoveNominationByMap(map);
 			ReplyToCommand(user, "[SM] Removed %s", map);
+			continue;
 		}
 	}
 
