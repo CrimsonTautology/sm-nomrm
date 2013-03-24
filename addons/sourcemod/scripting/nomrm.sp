@@ -102,6 +102,7 @@ public removeNominationMenu(client){
 	new size = GetArraySize(gNominateMaps);
 
 	for (new i=0; i<size; i++){
+		GetArrayString(gNominateMaps, i, map, sizeof(map));
 		AddMenuItem(menu, map, map);
 	}
 
