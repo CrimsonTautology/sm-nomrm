@@ -94,7 +94,7 @@ public removeNominationMenu(client){
 	new Handle:menu = CreateMenu(MapRemoveHandler);
 	decl String:map[NAME_SIZE];
 
-	GetNominatedMapList(gNominateMaps, gNominateOwners);
+	GetNominatedMapList(gNominateMaps, INVALID_HANDLE);
 	new size = GetArraySize(gNominateMaps);
 
 	for (new i=0; i<size; i++){
@@ -105,11 +105,15 @@ public removeNominationMenu(client){
 	DisplayMenu(menu, client, 20);
 
 }
-public MapRemoveHandler(Handle:menu, MenuAction:action, client, param){
+public MapRemoveHandler(Handle:menu, MenuAction:action, user, param){
 	if(action == MenuAction_Select){
-		new String:sClass[32];
-		new bool:found = GetMenuItem(menu, param, sClass, sizeof(sClass));
-		//PrintToChat(client, "You selected item: %d (found? %d info: %s)", param, found, info);
+		new String:sMap[NAME_SIZE];
+		new bool:found = GetMenuItem(menu, param, sMap, sizeof(sMap));
+
+		if(found){
+			RemoveNominationByMap(sMap);
+			ReplyToCommand(user, "[SM] Removed %s", sMap);
+		}
 
 
 	}else if (action == MenuAction_End){
