@@ -106,7 +106,7 @@ public removeNominationMenu(client){
 		AddMenuItem(menu, map, map);
 	}
 
-	SetMenuTitle(menu, "Select Favorite Class");
+	SetMenuTitle(menu, "Select Map To Remove From Nominations");
 	DisplayMenu(menu, client, 20);
 
 }
